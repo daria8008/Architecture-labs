@@ -10,11 +10,18 @@ namespace SupplierSvc1.Controllers
     [Route("search")]
     public class SearchController : ControllerBase
     {
+        public SearchController(IVacanciesRepository vacanciesRepo)
+        {
+            _vacanciesRepo = vacanciesRepo;
+        }
+
         [HttpGet]
         public async Task<JsonResult> GetVacanciesByFilter([FromQuery]Dictionary<string, string> filters)
         {
-            var vacancies = DB.GetVacanciesByFilter(filters);
+            var vacancies = _vacanciesRepo.GetVacanciesByFilter(filters);
             return new JsonResult(vacancies);
         }
+
+        private readonly IVacanciesRepository _vacanciesRepo;
     }
 }

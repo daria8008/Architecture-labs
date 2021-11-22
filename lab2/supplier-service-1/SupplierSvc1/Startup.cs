@@ -1,13 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SupplierSvc1.DataAccess;
 using SupplierSvc1.Middleware;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SupplierSvc1
 {
@@ -18,6 +14,9 @@ namespace SupplierSvc1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // set up DI
+            services.AddSingleton<IVacanciesRepository, VacanciesJsonRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
