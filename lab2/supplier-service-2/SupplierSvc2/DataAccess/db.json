@@ -1,0 +1,32 @@
+﻿[
+  {
+    "Id": "a0d3f8de-9858-4aab-83cd-c7dab66e1a5b",
+    "Name": "Junior .NET developer",
+    "Requirements": "junior requirements",
+    "Salary": 600,
+    "SocialPackage": "",
+    "EmployerId": "862afdf5-15a7-4ca9-99cf-7338235cf196",
+    "EmployerName": "GlobalLogic",
+    "OpeningDate": "2021-11-05"
+  },
+  {
+    "Id": "57c99695-11d6-4ea8-96a7-5cd70d529711",
+    "Name": "Middle .NET developer",
+    "Requirements": "middle requirements",
+    "Salary": 1600,
+    "SocialPackage": "",
+    "EmployerId": "862afdf5-15a7-4ca9-99cf-7338235cf196",
+    "EmployerName": "GlobalLogic",
+    "OpeningDate": "2021-11-07"
+  },
+  {
+    "Id": "6dc506f7-872e-40b8-9eee-90d75cf3f5b7",
+    "Name": "Senior .NET developer",
+    "Requirements": "senior requirements",
+    "Salary": 3100,
+    "SocialPackage": "",
+    "EmployerId": "862afdf5-15a7-4ca9-99cf-7338235cf196",
+    "EmployerName": "GlobalLogic",
+    "OpeningDate": "2021-11-02"
+  }
+]
