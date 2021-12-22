@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Currency Exchange";
+}
+
+
+<span>|&ensp;</span>
+<!-- ko foreach: $data.currencyData() -->
+<li data-bind="click: $parent.toggleActive" style="display:inline">
+    <a data-bind="attr: {href: '#' + $data.bankName}, text: bankName, css: $parent.selectedBank() == $data ? 'active': ''"></a>
+</li>
+<span>&ensp;|&ensp;</span>
+<!-- /ko -->
+
+<div></div>
+
+<table style="display: inline-table">
+    <thead>
+        <tr>
+            <th>Currency</th>
+            <th>Buy</th>
+            <th>Sale</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: $data.selectedBank().data">
+        <tr>
+            <td data-bind="text: currency"></td>
+            <td data-bind="text: buy"></td>
+            <td data-bind="text: sale"></td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="margin: 30px 0 20px 0; background-color: #303030; width: 360px">
+    <select data-bind="options: calcConvertOptions, value: calcConvertSelectedOption"></select>
+    <div style="padding: 20px">
+        <!-- ko if: calcConvertSelectedOption() === 'Buy' -->
+        <span class="text-white" style="margin: 0 10px 0 10px">UAH</span>
+        <!-- /ko -->
+        <!-- ko if: calcConvertSelectedOption() === 'Sale' -->
+        <select data-bind="options: exchangeCurrOptions, value: exchangeCurr"></select>
+        <!-- /ko -->
+        <input data-bind="textInput: exchangeVal1" style="margin-left: 30px" />
+    </div>
+    <img src="~/images/arrow-down.png" style="margin-left: 60px" />
+    <div style="padding: 20px">
+        <!-- ko if: calcConvertSelectedOption() === 'Sale' -->
+        <span class="text-white" style="margin: 0 10px 0 10px">UAH</span>
+        <!-- /ko -->
+        <!-- ko if: calcConvertSelectedOption() === 'Buy' -->
+        <select data-bind="options: exchangeCurrOptions, value: exchangeCurr"></select>
+        <!-- /ko -->
+        <input data-bind="textInput: exchangeVal2" style="margin-left: 30px" />
+    </div>
+</div>
