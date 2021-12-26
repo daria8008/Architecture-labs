@@ -18,6 +18,7 @@ namespace SupplierSvc1.Controllers
         [HttpGet]
         public async Task<JsonResult> GetVacanciesByFilter([FromQuery]Dictionary<string, string> filters)
         {
+            await Task.Delay(20 * 1000);
             var vacancies = _vacanciesRepo.GetVacanciesByFilter(filters);
             return new JsonResult(vacancies);
         }

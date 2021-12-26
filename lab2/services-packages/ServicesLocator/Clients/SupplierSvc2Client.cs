@@ -16,9 +16,9 @@ namespace ServicesLocator.Clients
             _httpClient = new HttpClient();
         }
 
-        public async Task<List<Vacancy>> GetVacanciesAsync()
+        public async Task<List<Vacancy>> GetVacanciesAsync(int pageNumber)
         {
-            var requestUri = new Uri(_baseUrl, "/vacancies/list");
+            var requestUri = new Uri(_baseUrl, $"/vacancies/list?page_number={pageNumber}");
             var response = await _httpClient.GetAsync(requestUri);
             if (response.StatusCode == HttpStatusCode.OK)
             {

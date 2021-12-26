@@ -5,13 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\services-packages\MongoDB\MongoDB.csproj" />
     <ProjectReference Include="..\..\services-packages\ServicesContracts\ServicesContracts.csproj" />
     <ProjectReference Include="..\..\services-packages\ServicesLocator\ServicesLocator.csproj" />
     <ProjectReference Include="..\Utils\Utils.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.14.1" />
   </ItemGroup>
 
 </Project>

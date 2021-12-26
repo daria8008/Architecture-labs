@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServicesLocator", "..\servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServicesContracts", "..\services-packages\ServicesContracts\ServicesContracts.csproj", "{0B30ED6B-5054-47DC-8473-E4CF29FA5915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{FC390474-31D4-4D8C-9AD0-78620A98DB5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{FC390474-31D4-4D8C-9AD0-78620A98DB5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDB", "..\services-packages\MongoDB\MongoDB.csproj", "{4453F3B1-92D1-4907-AD26-A1B48A718FC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FC390474-31D4-4D8C-9AD0-78620A98DB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC390474-31D4-4D8C-9AD0-78620A98DB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC390474-31D4-4D8C-9AD0-78620A98DB5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4453F3B1-92D1-4907-AD26-A1B48A718FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4453F3B1-92D1-4907-AD26-A1B48A718FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4453F3B1-92D1-4907-AD26-A1B48A718FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4453F3B1-92D1-4907-AD26-A1B48A718FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

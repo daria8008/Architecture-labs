@@ -23,3 +23,4 @@ namespace RecruitingAgencySvc.Controllers
         private readonly VacanciesDataAccess _vacanciesDA;
     }
 }
+ 

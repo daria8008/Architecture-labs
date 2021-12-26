@@ -1,4 +1,4 @@
-﻿using DataAccess.MongoDb;
+﻿using MongoDB;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using ServicesContracts;
@@ -24,19 +24,29 @@ namespace DataAccess
             var res = new List<Vacancy>();
 
             // get data from svc1
-            var svc1 = _serviceClientFactory.ResolveClient<SupplierSvc1Client>();
-            var filtersSvc1 = new Dictionary<string, string>()
-            {
-                { nameof(Vacancy.Name), name },
-                { nameof(Vacancy.Salary), minSalary.ToString() }
-            };
-            res.AddRange(await svc1.GetVacanciesByFilterAsync(filtersSvc1));
+            //var svc1 = _serviceClientFactory.ResolveClient<SupplierSvc1Client>();
+            //var filtersSvc1 = new Dictionary<string, string>()
+            //{
+            //    { nameof(Vacancy.Name), name },
+            //    { nameof(Vacancy.Salary), minSalary.ToString() }
+            //};
+            //res.AddRange(await svc1.GetVacanciesByFilterAsync(filtersSvc1));
 
             // get data from svc2
             var service2 = _serviceClientFactory.ResolveClient<SupplierSvc2Client>();
             var filtersSvc2 = new VacancyNameSpecification(name).And(new VacancySalarySpecification(minSalary));
-            var allVacanciesSvc2 = await service2.GetVacanciesAsync();
-            res.AddRange(allVacanciesSvc2.Where(x => filtersSvc2.IsSatisfiedBy(x)).ToArray());
+            var pageNumber = 0;
+            while(true)
+            {
+                var allVacanciesSvc2 = await service2.GetVacanciesAsync(pageNumber);
+                if (allVacanciesSvc2.Count == 0)
+                {
+                    break;
+                }
+                res.AddRange(allVacanciesSvc2.Where(x => filtersSvc2.IsSatisfiedBy(x)).ToArray());
+                pageNumber++;
+            }
+            
 
             // get data from db
             var filterBuilder = Builders<BsonDocument>.Filter;
@@ -46,6 +56,6 @@ namespace DataAccess
         }
 
         private readonly ServiceClientFactory _serviceClientFactory;
-        private readonly Mongo _mongo;
+        private readonly MongodbClient _mongo;
     }
 }
