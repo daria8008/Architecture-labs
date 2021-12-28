@@ -24,13 +24,13 @@ namespace DataAccess
             var res = new List<Vacancy>();
 
             // get data from svc1
-            //var svc1 = _serviceClientFactory.ResolveClient<SupplierSvc1Client>();
-            //var filtersSvc1 = new Dictionary<string, string>()
-            //{
-            //    { nameof(Vacancy.Name), name },
-            //    { nameof(Vacancy.Salary), minSalary.ToString() }
-            //};
-            //res.AddRange(await svc1.GetVacanciesByFilterAsync(filtersSvc1));
+            var svc1 = _serviceClientFactory.ResolveClient<SupplierSvc1Client>();
+            var filtersSvc1 = new Dictionary<string, string>()
+            {
+                { nameof(Vacancy.Name), name },
+                { nameof(Vacancy.Salary), minSalary.ToString() }
+            };
+            res.AddRange(await svc1.GetVacanciesByFilterAsync(filtersSvc1));
 
             // get data from svc2
             var service2 = _serviceClientFactory.ResolveClient<SupplierSvc2Client>();
